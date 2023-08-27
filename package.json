@@ -1,5 +1,5 @@
 {
-  "name": "react-diagrams",
+  "name": "react-drawio",
   "version": "0.0.1",
   "type": "module",
   "description": "React component for integrating the Diagrams (draw.io) embed iframe",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcveens/react-diagrams.git"
+    "url": "git+https://github.com/marcveens/react-drawio.git"
   },
   "author": "Marc Veens",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marcveens/react-diagrams/issues"
+    "url": "https://github.com/marcveens/react-drawio/issues"
   },
-  "homepage": "https://github.com/marcveens/react-diagrams#readme",
+  "homepage": "https://github.com/marcveens/react-drawio#readme",
   "tags": [
     "react",
     "diagram",

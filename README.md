@@ -1,4 +1,4 @@
-# react-diagrams
+# react-drawio
 
 React component for <a href="https://app.diagrams.net">Diagrams</a> (<a href="https://www.drawio.com/">draw.io</a>) embed.
 
@@ -7,11 +7,11 @@ React component for <a href="https://app.diagrams.net">Diagrams</a> (<a href="ht
 Install this library:
 
 ```bash
-pnpm add react-diagrams
+pnpm add react-drawio
 # or
-yarn add react-diagrams
+yarn add react-drawio
 # or
-npm i react-diagrams
+npm i react-drawio
 ```
 
 
