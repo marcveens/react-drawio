@@ -1,6 +1,5 @@
 import { swc } from 'rollup-plugin-swc3';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { dts } from 'rollup-plugin-dts';
 import del from 'rollup-plugin-delete';
 import pkg from './package.json' assert { type: 'json' };
 
@@ -32,8 +31,7 @@ const plugins = (targets) => [
       type: 'es6'
     },
     sourceMaps: true
-  }),
-  dts()
+  })
 ];
 
 export default {

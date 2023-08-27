@@ -1,6 +1,6 @@
 {
   "name": "react-drawio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "React component for integrating the Diagrams (draw.io) embed iframe",
   "main": "index.js",
@@ -70,5 +70,8 @@
       "require": "./dist/index.cjs"
     },
     "directory": "package"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
