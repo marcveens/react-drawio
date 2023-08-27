@@ -1,5 +1,3 @@
-import './styles.css';
-
 import {
   forwardRef,
   useEffect,
@@ -124,6 +122,11 @@ export const DiagramsEmbed = forwardRef<DiagramsEmbedRef, DiagramsEmbedProps>(
         src={iframeUrl}
         ref={iframeRef}
         title="Diagrams.net"
+        style={{
+          width: '100%',
+          height: '100%',
+          border: 'none'
+        }}
       />
     );
   }
