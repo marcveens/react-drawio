@@ -1,8 +1,17 @@
 import { UrlParameters } from '../types';
 
-export const getEmbedUrl = (urlParameters?: UrlParameters) => {
+export const getEmbedUrl = (
+  urlParameters?: UrlParameters,
+  addConfiguration?: boolean
+) => {
   const url = new URL('/', 'https://embed.diagrams.net');
   const urlSearchParams = new URLSearchParams();
+
+  urlSearchParams.append('proto', 'json');
+
+  if (addConfiguration) {
+    urlSearchParams.append('configure', '1');
+  }
 
   if (urlParameters) {
     Object.keys(urlParameters).forEach((key) => {

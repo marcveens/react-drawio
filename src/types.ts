@@ -1,12 +1,31 @@
-// All of the definitions are based on https://www.drawio.com/doc/faq/embed-mode
+import { useActions } from './hooks/useActions';
 
 export type DiagramsEmbedProps = {
+  /**
+   * Parameters documented at https://www.drawio.com/doc/faq/embed-mode
+   */
   urlParameters?: UrlParameters;
+  /**
+   * XML structure for prefilling the editor
+   */
+  xml?: string;
   /**
    * For configuration options, see https://www.drawio.com/doc/faq/configure-diagram-editor
    */
-  configure?: { [key: string]: any };
+  configuration?: { [key: string]: any };
+
+  onLoad?: (data: EventLoad) => void;
+  onSave?: (data: EventSave) => void;
+  onClose?: (data: EventExit) => void;
+  onConfigure?: (data: EventConfigure) => void;
+  onMerge?: (data: EventMerge) => void;
+  onPrompt?: (data: EventPrompt) => void;
+  onTemplate?: (data: EventTemplate) => void;
+  onDraft?: (data: EventDraft) => void;
+  onExport?: (data: EventExport) => void;
 };
+
+export type DiagramsEmbedRef = ReturnType<typeof useActions>;
 
 export type UrlParameters = {
   /**
@@ -55,4 +74,159 @@ export type UrlParameters = {
    * @default false
    */
   noExitBtn?: boolean;
+};
+
+type ExportFormats = 'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng';
+
+export type EmbedEvents =
+  | EventInit
+  | EventLoad
+  | EventSave
+  | EventExit
+  | EventConfigure
+  | EventMerge
+  | EventPrompt
+  | EventTemplate
+  | EventDraft
+  | EventExport;
+
+type EventInit = {
+  event: 'init';
+};
+
+type EventLoad = {
+  event: 'load';
+  xml: string;
+  scale: number;
+};
+
+type EventSave = {
+  event: 'save';
+  exit?: boolean;
+  xml: string;
+};
+
+type EventExit = {
+  event: 'exit';
+  modified: boolean;
+};
+
+type EventConfigure = {
+  event: 'configure';
+};
+
+type EventMerge = {
+  event: 'merge';
+  error: string;
+  message: string;
+};
+
+type EventPrompt = {
+  event: 'prompt';
+  value: string;
+  message: ActionPrompt;
+};
+
+type EventTemplate = {
+  event: 'template';
+  xml: string;
+  name: string;
+  message: ActionTemplate;
+  libs?: string;
+  builtIn?: boolean;
+  blank?: boolean;
+};
+
+type EventDraft = {
+  event: 'draft';
+  error?: string;
+  result?: string;
+  message: ActionDraft;
+};
+
+type EventExport = {
+  event: 'export';
+  format: ExportFormats;
+  message: ActionExport;
+  data: string;
+  xml: string;
+};
+
+export type EmbedActions =
+  | ActionLoad
+  | ActionMerge
+  | ActionConfigure
+  | ActionDialog
+  | ActionPrompt
+  | ActionTemplate
+  | ActionLayout;
+
+export type ActionLoad = {
+  action: 'load';
+  xml: string;
+};
+
+export type ActionMerge = {
+  action: 'merge';
+  xml: string;
+};
+
+export type ActionConfigure = {
+  action: 'configure';
+  config: { [key: string]: any };
+};
+
+export type ActionDialog = {
+  action: 'dialog';
+  title: string;
+  message: string;
+  button: string;
+  modified?: boolean;
+};
+
+export type ActionPrompt = {
+  action: 'prompt';
+  title: string;
+  ok: string;
+  defaultValue: string;
+};
+
+export type ActionTemplate = {
+  action: 'template';
+  callback?: boolean;
+};
+
+export type ActionLayout = {
+  action: 'layout';
+  layouts: string[];
+};
+
+export type ActionDraft = {
+  action: 'draft';
+  xml: string;
+  name: string;
+  editKey: string;
+  discardKey: string;
+  ignore: boolean;
+};
+
+export type ActionStatus = {
+  action: 'status';
+  message: string;
+  modified?: boolean;
+};
+
+export type ActionSpinner = {
+  action: 'spinner';
+  message: string;
+  show: boolean;
+  enabled: boolean;
+};
+
+export type ActionExport = {
+  action: 'export';
+  format: ExportFormats;
+  spin?: boolean;
+  message?: string;
+  xml?: string;
 };
