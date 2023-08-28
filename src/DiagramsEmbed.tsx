@@ -9,6 +9,7 @@ import { DiagramsEmbedProps, DiagramsEmbedRef } from './types';
 import { getEmbedUrl } from './utils/getEmbedUrl';
 import { handleEvent } from './utils/handleEvent';
 import { useActions } from './hooks/useActions';
+import React from 'react';
 
 export const DiagramsEmbed = forwardRef<DiagramsEmbedRef, DiagramsEmbedProps>(
   (props, ref) => {
