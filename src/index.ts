@@ -1,2 +1,2 @@
-export * from './DiagramsEmbed';
+export * from './DrawIoEmbed';
 export * from './types';

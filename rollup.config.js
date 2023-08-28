@@ -48,7 +48,6 @@ export default {
       file: pkg.publishConfig.exports.require,
       format: 'cjs',
       sourcemap: true
-    },
-    { file: pkg.publishConfig.exports.types, format: 'es' }
+    }
   ]
 };

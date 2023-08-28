@@ -1,11 +1,13 @@
 {
   "name": "react-drawio",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "type": "module",
   "description": "React component for integrating the Diagrams (draw.io) embed iframe",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
+    "prepublishOnly": "npm run build && clean-publish",
+    "emit-declarations": "tsc --emitDeclarationOnly",
+    "build": "rollup -c && npm run emit-declarations",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "start:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
@@ -43,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "clean-publish": "^4.2.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -51,7 +54,6 @@
     "react-dom": "^18.2.0",
     "rollup": "^3.28.1",
     "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-import-css": "^3.3.1",
     "rollup-plugin-swc3": "^0.10.1",
     "storybook": "^7.3.2",
