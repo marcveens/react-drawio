@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { DiagramsEmbed } from '../src/DiagramsEmbed';
+import { DrawIoEmbed } from '../src/DrawIoEmbed';
 import { useEffect, useRef, useState } from 'react';
-import { DiagramsEmbedRef } from '../src/types';
+import { DrawIoEmbedRef } from '../src/types';
 import React from 'react';
 
-const meta: Meta<typeof DiagramsEmbed> = {
-  title: 'Components/DiagramsEmbed',
-  component: DiagramsEmbed,
+const meta: Meta<typeof DrawIoEmbed> = {
+  title: 'Components/DrawIoEmbed',
+  component: DrawIoEmbed,
   parameters: {
     layout: 'centered'
   },
@@ -39,7 +39,7 @@ const meta: Meta<typeof DiagramsEmbed> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof DiagramsEmbed>;
+type Story = StoryObj<typeof DrawIoEmbed>;
 
 export const NewCanvas: Story = {};
 
@@ -88,20 +88,20 @@ export const ShowDialog: Story = {
   decorators: [
     (Story) => {
       const [isLoaded, setIsLoaded] = useState(false);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.dialog({
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.dialog({
             title: 'My test dialog',
             message: 'My message',
             button: 'OK'
           });
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
-        <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+        <Story args={{ onLoad: () => setIsLoaded(true), ref: drawioRef }} />
       );
     }
   ]
@@ -112,20 +112,20 @@ export const ShowPrompt: Story = {
   decorators: [
     (Story) => {
       const [isLoaded, setIsLoaded] = useState(false);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.prompt({
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.prompt({
             title: 'What color?',
             defaultValue: 'blue',
             ok: 'Save'
           });
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
-        <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+        <Story args={{ onLoad: () => setIsLoaded(true), ref: drawioRef }} />
       );
     }
   ]
@@ -136,16 +136,16 @@ export const PickTemplate: Story = {
   decorators: [
     (Story) => {
       const [isLoaded, setIsLoaded] = useState(false);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.template({});
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.template({});
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
-        <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+        <Story args={{ onLoad: () => setIsLoaded(true), ref: drawioRef }} />
       );
     }
   ]
@@ -156,18 +156,18 @@ export const PickLayout: Story = {
   decorators: [
     (Story) => {
       const [isLoaded, setIsLoaded] = useState(false);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.layout({
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.layout({
             layouts: []
           });
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
-        <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+        <Story args={{ onLoad: () => setIsLoaded(true), ref: drawioRef }} />
       );
     }
   ]
@@ -178,18 +178,18 @@ export const SetStatus: Story = {
   decorators: [
     (Story) => {
       const [isLoaded, setIsLoaded] = useState(false);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.status({
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.status({
             message: 'My status message'
           });
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
-        <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+        <Story args={{ onLoad: () => setIsLoaded(true), ref: drawioRef }} />
       );
     }
   ]
@@ -200,20 +200,20 @@ export const SetSpinner: Story = {
   decorators: [
     (Story) => {
       const [isLoaded, setIsLoaded] = useState(false);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.spinner({
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.spinner({
             message: 'Spinner spinner spinner',
             enabled: true,
             show: true
           });
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
-        <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+        <Story args={{ onLoad: () => setIsLoaded(true), ref: drawioRef }} />
       );
     }
   ]
@@ -225,15 +225,15 @@ export const ExportData: Story = {
     (Story, context) => {
       const [isLoaded, setIsLoaded] = useState(false);
       const [imgData, setImgData] = useState<string | null>(null);
-      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
 
       useEffect(() => {
-        if (diagramsRef.current && isLoaded) {
-          diagramsRef.current.exportDiagram({
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.exportDiagram({
             format: 'xmlsvg'
           });
         }
-      }, [diagramsRef.current, isLoaded]);
+      }, [drawioRef.current, isLoaded]);
 
       return (
         <>
@@ -251,7 +251,7 @@ export const ExportData: Story = {
               onClose(data) {
                 console.log('onClose', data);
               },
-              ref: diagramsRef
+              ref: drawioRef
             }}
           />
           <div style={{ marginTop: '10px' }}>

@@ -5,13 +5,13 @@ import {
   useRef,
   useState
 } from 'react';
-import { DiagramsEmbedProps, DiagramsEmbedRef } from './types';
+import { DrawIoEmbedProps, DrawIoEmbedRef } from './types';
 import { getEmbedUrl } from './utils/getEmbedUrl';
 import { handleEvent } from './utils/handleEvent';
 import { useActions } from './hooks/useActions';
 import React from 'react';
 
-export const DiagramsEmbed = forwardRef<DiagramsEmbedRef, DiagramsEmbedProps>(
+export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
   (props, ref) => {
     const {
       urlParameters,

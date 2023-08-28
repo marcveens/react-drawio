@@ -1,6 +1,6 @@
 import { useActions } from './hooks/useActions';
 
-export type DiagramsEmbedProps = {
+export type DrawIoEmbedProps = {
   /**
    * Parameters documented at https://www.drawio.com/doc/faq/embed-mode
    */
@@ -25,7 +25,7 @@ export type DiagramsEmbedProps = {
   onExport?: (data: EventExport) => void;
 };
 
-export type DiagramsEmbedRef = ReturnType<typeof useActions>;
+export type DrawIoEmbedRef = ReturnType<typeof useActions>;
 
 export type UrlParameters = {
   /**
