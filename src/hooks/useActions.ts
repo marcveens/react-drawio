@@ -18,7 +18,7 @@ export const useActions = (iframeRef: RefObject<HTMLIFrameElement | null>) => {
   };
 
   /**
-   * Load the contents of the diagram
+   * Load the contents of a diagram
    */
   const load = (data: UniqueActionProps<ActionLoad>) => {
     sendAction('load', data);
