@@ -226,7 +226,7 @@ export type ActionSpinner = {
 export type ActionExport = {
   action: 'export';
   format: ExportFormats;
-  spin?: boolean;
+  data?: string;
   message?: string;
   xml?: string;
 };

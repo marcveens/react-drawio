@@ -53,9 +53,11 @@ export const DiagramsEmbed = forwardRef<DiagramsEmbedRef, DiagramsEmbedProps>(
           }
         },
         save: (data) => {
-          if (onSave) {
-            onSave(data);
-          }
+          action.exportDiagram({
+            format: 'xmlsvg',
+            // @ts-ignore not allowed normally, but only for internal use
+            exit: data.exit
+          });
         },
         exit: (data) => {
           if (onClose) {
@@ -68,8 +70,23 @@ export const DiagramsEmbed = forwardRef<DiagramsEmbedRef, DiagramsEmbedProps>(
           }
         },
         export: (data) => {
+          if (onSave) {
+            onSave({
+              event: 'save',
+              xml: data.data
+            });
+          }
+
           if (onExport) {
             onExport(data);
+          }
+
+          // @ts-ignore not allowed normally, but only for internal use
+          if (data.message.exit && onClose) {
+            onClose({
+              event: 'exit',
+              modified: true
+            });
           }
         },
         merge: (data) => {
@@ -126,6 +143,8 @@ export const DiagramsEmbed = forwardRef<DiagramsEmbedRef, DiagramsEmbedProps>(
         style={{
           width: '100%',
           height: '100%',
+          minWidth: '400px',
+          minHeight: '400px',
           border: 'none'
         }}
       />

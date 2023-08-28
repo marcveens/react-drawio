@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { DiagramsEmbed } from '../src/DiagramsEmbed';
 import { useEffect, useRef, useState } from 'react';
 import { DiagramsEmbedRef } from '../src/types';
+import React from 'react';
 
 const meta: Meta<typeof DiagramsEmbed> = {
   title: 'Components/DiagramsEmbed',
@@ -182,7 +183,7 @@ export const SetStatus: Story = {
       useEffect(() => {
         if (diagramsRef.current && isLoaded) {
           diagramsRef.current.status({
-            message: 'My status message',
+            message: 'My status message'
           });
         }
       }, [diagramsRef.current, isLoaded]);
@@ -213,6 +214,52 @@ export const SetSpinner: Story = {
 
       return (
         <Story args={{ onLoad: () => setIsLoaded(true), ref: diagramsRef }} />
+      );
+    }
+  ]
+};
+
+export const ExportData: Story = {
+  args: WithData.args,
+  decorators: [
+    (Story, context) => {
+      const [isLoaded, setIsLoaded] = useState(false);
+      const [imgData, setImgData] = useState<string | null>(null);
+      const diagramsRef = useRef<DiagramsEmbedRef>(null);
+
+      useEffect(() => {
+        if (diagramsRef.current && isLoaded) {
+          diagramsRef.current.exportDiagram({
+            format: 'xmlsvg'
+          });
+        }
+      }, [diagramsRef.current, isLoaded]);
+
+      return (
+        <>
+          <Story
+            args={{
+              ...context.args,
+              onLoad: () => setIsLoaded(true),
+              onExport(data) {
+                console.log('onExport', data);
+                setImgData(data.data);
+              },
+              onSave(data) {
+                console.log('onSave', data);
+              },
+              onClose(data) {
+                console.log('onClose', data);
+              },
+              ref: diagramsRef
+            }}
+          />
+          <div style={{ marginTop: '10px' }}>
+            <strong>Result as SVG</strong>
+            <br />
+            {imgData && <img src={imgData} />}
+          </div>
+        </>
       );
     }
   ]

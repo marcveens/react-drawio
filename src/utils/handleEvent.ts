@@ -11,7 +11,7 @@ export function handleEvent(event: MessageEvent, handlers: EventHandler) {
 
   try {
     const data = JSON.parse(event.data) as EmbedEvents;
-    
+
     if (data.event in handlers) {
       const handler = handlers[data.event];
 
