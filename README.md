@@ -28,22 +28,22 @@ npm i react-drawio
 ## Examples 
 ### Simple rendering
 ```tsx
-import { DiagramsEmbed } from 'react-drawio';
+import { DrawIoEmbed } from 'react-drawio';
 
 function App() {
   return (
-    <DiagramsEmbed />
+    <DrawIoEmbed />
   );
 }
 ```
 
 ### Start with a few settings enabled
 ```tsx
-import { DiagramsEmbed } from 'react-drawio';
+import { DrawIoEmbed } from 'react-drawio';
 
 function App() {
   return (
-    <DiagramsEmbed urlParameters={{
+    <DrawIoEmbed urlParameters={{
       ui: 'kennedy',
       spin: true,
       libraries: true,
@@ -55,18 +55,18 @@ function App() {
 
 ### Start with existing diagram
 ```tsx
-import { DiagramsEmbed } from 'react-drawio';
+import { DrawIoEmbed } from 'react-drawio';
 
 function App() {
   return (
-    <DiagramsEmbed xml="..." />
+    <DrawIoEmbed xml="..." />
   );
 }
 ```
 
 ### Export diagram programmatically
 ```tsx
-import { DiagramsEmbed, DrawIoEmbedRef } from 'react-drawio';
+import { DrawIoEmbed, DrawIoEmbedRef } from 'react-drawio';
 import { useRef, useState } from 'react';
 
 function App() {
@@ -85,7 +85,7 @@ function App() {
     <>
       <button onClick={export}>Export</button>
 
-      <DiagramsEmbed 
+      <DrawIoEmbed 
         ref={drawioRef}
         onExport={(data) =>  setImgData(data.data)} 
       />
