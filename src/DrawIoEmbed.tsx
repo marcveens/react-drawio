@@ -17,6 +17,7 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
       urlParameters,
       configuration,
       xml,
+      exportFormat,
       onSave,
       onClose,
       onLoad,
@@ -54,7 +55,7 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
         },
         save: (data) => {
           action.exportDiagram({
-            format: 'xmlsvg',
+            format: exportFormat || 'xmlsvg',
             // @ts-ignore not allowed normally, but only for internal use
             exit: data.exit
           });

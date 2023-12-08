@@ -13,7 +13,7 @@ export type DrawIoEmbedProps = {
    * For configuration options, see https://www.drawio.com/doc/faq/configure-diagram-editor
    */
   configuration?: { [key: string]: any };
-
+  exportFormat?: 'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng';
   onLoad?: (data: EventLoad) => void;
   onSave?: (data: EventSave) => void;
   onClose?: (data: EventExit) => void;
