@@ -119,7 +119,11 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
     useEffect(() => {
       if (isInitialized) {
         if (xml) {
-          action.load({ xml });
+          if (exportFormat === 'xmlpng') {
+            action.load({ xmlpng: xml });
+          } else {
+            action.load({ xml });
+          }
         } else {
           action.load({ xml: '' });
         }

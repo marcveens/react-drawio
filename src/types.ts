@@ -13,7 +13,7 @@ export type DrawIoEmbedProps = {
    * For configuration options, see https://www.drawio.com/doc/faq/configure-diagram-editor
    */
   configuration?: { [key: string]: any };
-  exportFormat?: 'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng';
+  exportFormat?: ExportFormats;
   onLoad?: (data: EventLoad) => void;
   onSave?: (data: EventSave) => void;
   onClose?: (data: EventExit) => void;
@@ -163,7 +163,8 @@ export type EmbedActions =
 
 export type ActionLoad = {
   action: 'load';
-  xml: string;
+  xml?: string;
+  xmlpng?: string;
 };
 
 export type ActionMerge = {
