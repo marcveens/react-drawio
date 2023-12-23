@@ -14,6 +14,7 @@ import React from 'react';
 export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
   (props, ref) => {
     const {
+      baseUrl,
       urlParameters,
       configuration,
       xml,
@@ -31,7 +32,7 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
 
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const action = useActions(iframeRef);
-    const iframeUrl = getEmbedUrl(urlParameters, !!configuration);
+    const iframeUrl = getEmbedUrl(baseUrl, urlParameters, !!configuration);
     const [isInitialized, setIsInitialized] = useState(false);
 
     const messageHandler = (evt: MessageEvent) => {
