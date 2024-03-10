@@ -1,3 +1,6 @@
+# 0.1.3
+- Dependabot patches
+
 # 0.1.2
 - Automated correct loading command when using `xmlpng` format
 
