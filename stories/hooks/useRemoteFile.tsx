@@ -4,7 +4,7 @@ type UrlToBase64Options = {
   isVisio?: boolean;
 };
 
-const basePath = process.env.GH_PAGE ? '/react-drawio' : '';
+const basePath = process.env.REACT_GH_PAGE === 'true' ? '/react-drawio' : '';
 
 export const useRemoteFile = () => {
   const [inputXml, setInputXml] = useState<string>('');
