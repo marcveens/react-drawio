@@ -5,7 +5,7 @@ type EventHandler = {
 };
 
 export function handleEvent(event: MessageEvent, handlers: EventHandler) {
-  if (!event.origin.includes('embed.diagrams.net')) {
+  if (!event.origin.includes('embed.diagrams.net') && !event.origin.includes(baseUrl)) {
     return;
   }
 
