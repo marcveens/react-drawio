@@ -31,7 +31,7 @@ export type UrlParameters = {
   /**
    * Theme of the editor
    */
-  ui?: 'min' | 'atlas' | 'kennedy' | 'dark';
+  ui?: 'min' | 'atlas' | 'kennedy' | 'dark' | 'sketch' | 'simple';
   /**
    * Shows a Loading… spinner while waiting for the diagram data to load in embed mode.
    *

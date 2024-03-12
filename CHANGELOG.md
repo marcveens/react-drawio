@@ -1,3 +1,6 @@
+# 0.1.4
+- Updated supported `ui` themes
+
 # 0.1.3
 - Dependabot patches
 
