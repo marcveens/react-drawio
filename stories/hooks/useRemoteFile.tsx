@@ -4,11 +4,13 @@ type UrlToBase64Options = {
   isVisio?: boolean;
 };
 
+const basePath = process.env.GH_PAGE ? '/react-drawio' : '';
+
 export const useRemoteFile = () => {
   const [inputXml, setInputXml] = useState<string>('');
 
   const urlToBase64 = async (url: string, options?: UrlToBase64Options) => {
-    const data = await fetch(url);
+    const data = await fetch(`${basePath}${url}`);
 
     if (data) {
       const blob = await data.blob();
