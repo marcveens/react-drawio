@@ -1,12 +1,14 @@
 import { useState } from 'react';
 
+type UrlToBase64Options = {
+  isVisio?: boolean;
+};
+
 export const useRemoteFile = () => {
   const [inputXml, setInputXml] = useState<string>('');
 
-  const urlToBase64 = async (url: string) => {
+  const urlToBase64 = async (url: string, options?: UrlToBase64Options) => {
     const data = await fetch(url);
-
-    console.log(data);
 
     if (data) {
       const blob = await data.blob();
@@ -14,9 +16,13 @@ export const useRemoteFile = () => {
       const reader = new FileReader();
       reader.readAsDataURL(blob);
       reader.onloadend = () => {
-        const base64data = reader.result;
+        let base64data = (reader.result || '') as string;
 
-        setInputXml(base64data as string);
+        if (options?.isVisio) {
+          base64data = base64data.replace('data:application/octet-stream;base64', 'data:application/vnd.visio;base64');
+        }
+
+        setInputXml(base64data);
       };
     }
   };

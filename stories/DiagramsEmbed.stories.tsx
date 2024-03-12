@@ -65,6 +65,23 @@ export const WithRemotePng: Story = {
   args: {}
 };
 
+export const WithRemoteVsdx: Story = {
+  decorators: [
+    (Story) => {
+      const { inputXml, urlToBase64 } = useRemoteFile();
+
+      useEffect(() => {
+        urlToBase64('/mydrawio.vsdx', {
+          isVisio: true
+        });
+      }, []);
+
+      return <Story args={{ xml: inputXml }} />;
+    }
+  ],
+  args: {}
+};
+
 export const WithConfigurations: Story = {
   args: {
     xml: '<mxfile host="embed.diagrams.net" modified="2023-08-27T13:33:23.800Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" version="21.6.9" etag="xthbfrarG6SmZwCYJPbt" type="embed"><diagram id="kaqXdMjmixOsNJA9w4jU" name="Page-1"><mxGraphModel dx="314" dy="361" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0"><root><mxCell id="0" /><mxCell id="1" parent="0" /><mxCell id="2" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#99FFFF;strokeColor=#0066CC;" vertex="1" parent="1"><mxGeometry x="110" y="150" width="120" height="80" as="geometry" /></mxCell></root></mxGraphModel></diagram></mxfile>',
