@@ -10,7 +10,7 @@
     "build": "rollup -c && npm run emit-declarations",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "start:storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build --static-dir react-drawio"
   },
   "repository": {
     "type": "git",
