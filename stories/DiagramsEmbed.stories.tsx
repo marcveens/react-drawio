@@ -56,7 +56,7 @@ export const WithRemotePng: Story = {
       const { inputXml, urlToBase64 } = useRemoteFile();
 
       useEffect(() => {
-        urlToBase64('/mydrawio.png');
+        urlToBase64('/react-drawio/mydrawio.png');
       }, []);
 
       return <Story args={{ xml: inputXml }} />;
@@ -71,7 +71,7 @@ export const WithRemoteVsdx: Story = {
       const { inputXml, urlToBase64 } = useRemoteFile();
 
       useEffect(() => {
-        urlToBase64('/mydrawio.vsdx', {
+        urlToBase64('/react-drawio/mydrawio.vsdx', {
           isVisio: true
         });
       }, []);

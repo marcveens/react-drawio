@@ -15,13 +15,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag'
   },
-  staticDirs: ['../public'],
-  viteFinal: (config) => {
-    if (process.env.GH_PAGES) {
-      config.base = '/react-drawio/';
-    }
-
-    return config;
-  }
+  staticDirs: ['../public']
 };
 export default config;
