@@ -75,7 +75,8 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
           if (onSave) {
             onSave({
               event: 'save',
-              xml: data.data
+              xml: data.data,
+              parentEvent: 'export'
             });
           }
 
@@ -87,7 +88,8 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
           if (data.message.exit && onClose) {
             onClose({
               event: 'exit',
-              modified: true
+              modified: true,
+              parentEvent: 'export'
             });
           }
         },

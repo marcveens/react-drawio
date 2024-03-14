@@ -1,3 +1,6 @@
+# 0.1.6
+- Added `parentEvent` parameters to `onSave` and `onClose` events when the callbacks are triggered by another event.
+
 # 0.1.5
 - Fixed `urlParameters` which has a value of `false` or `0` but didn't show up
 - Added ability to have a custom baseUrl - thanks to @sabinayakc

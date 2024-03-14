@@ -108,11 +108,15 @@ type EventSave = {
   event: 'save';
   exit?: boolean;
   xml: string;
+  /** Is set when the event was triggered by anything other than the save action */
+  parentEvent?: string;
 };
 
 type EventExit = {
   event: 'exit';
   modified: boolean;
+  /** Is set when the event was triggered by anything other than the save action */
+  parentEvent?: string;
 };
 
 type EventConfigure = {
