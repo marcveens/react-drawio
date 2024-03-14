@@ -94,17 +94,17 @@ export type EmbedEvents =
   | EventDraft
   | EventExport;
 
-type EventInit = {
+export type EventInit = {
   event: 'init';
 };
 
-type EventLoad = {
+export type EventLoad = {
   event: 'load';
   xml: string;
   scale: number;
 };
 
-type EventSave = {
+export type EventSave = {
   event: 'save';
   exit?: boolean;
   xml: string;
@@ -112,30 +112,30 @@ type EventSave = {
   parentEvent?: string;
 };
 
-type EventExit = {
+export type EventExit = {
   event: 'exit';
   modified: boolean;
   /** Is set when the event was triggered by anything other than the save action */
   parentEvent?: string;
 };
 
-type EventConfigure = {
+export type EventConfigure = {
   event: 'configure';
 };
 
-type EventMerge = {
+export type EventMerge = {
   event: 'merge';
   error: string;
   message: string;
 };
 
-type EventPrompt = {
+export type EventPrompt = {
   event: 'prompt';
   value: string;
   message: ActionPrompt;
 };
 
-type EventTemplate = {
+export type EventTemplate = {
   event: 'template';
   xml: string;
   name: string;
@@ -145,14 +145,14 @@ type EventTemplate = {
   blank?: boolean;
 };
 
-type EventDraft = {
+export type EventDraft = {
   event: 'draft';
   error?: string;
   result?: string;
   message: ActionDraft;
 };
 
-type EventExport = {
+export type EventExport = {
   event: 'export';
   format: ExportFormats;
   message: ActionExport;

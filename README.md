@@ -109,6 +109,10 @@ All options are based on the documentation at <a href="https://www.drawio.com/do
   XML structure for prefilling the editor
 - `configuration` (`Object`, default: `undefined`)\
   For configuration options, see https://www.drawio.com/doc/faq/configure-diagram-editor
+- `exportFormat` (`'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng'`, default: `xmlsvg`)\
+  Set export format
+- `baseUrl` (`string`, default: `https://embed.diagrams.net`)\
+  For self hosted instances of draw.io, insert your URL here
 
 - `onLoad` (`(data: EventLoad) => void`, optional)
 - `onSave` (`(data: EventSave) => void`, optional)
