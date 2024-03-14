@@ -4,8 +4,8 @@ type EventHandler = {
   [key in EmbedEvents['event']]?: (data: Extract<EmbedEvents, { event: key }>) => void;
 };
 
-export function handleEvent(event: MessageEvent, handlers: EventHandler) {
-  if (!event.origin.includes('embed.diagrams.net') && !event.origin.includes(baseUrl)) {
+export function handleEvent(event: MessageEvent, handlers: EventHandler, baseUrl?: string) {
+  if (!event.origin.includes('embed.diagrams.net') && (baseUrl && !event.origin.includes(baseUrl))) {
     return;
   }
 
