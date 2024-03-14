@@ -1,5 +1,6 @@
 # 0.1.5
 - Fixed `urlParameters` which has a value of `false` or `0` but didn't show up
+- Added ability to have a custom baseUrl - thanks to @sabinayakc
 
 # 0.1.4
 - Updated supported `ui` themes
