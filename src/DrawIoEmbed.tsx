@@ -36,79 +36,84 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
     const [isInitialized, setIsInitialized] = useState(false);
 
     const messageHandler = (evt: MessageEvent) => {
-      handleEvent(evt, {
-        init: () => {
-          setIsInitialized(true);
-        },
-        load: (data) => {
-          if (onLoad) {
-            onLoad(data);
-          }
-        },
-        configure: (data) => {
-          if (configuration) {
-            action.configure({ config: configuration });
-          }
+      handleEvent(
+        evt,
+        {
+          init: () => {
+            setIsInitialized(true);
+          },
+          load: (data) => {
+            if (onLoad) {
+              onLoad(data);
+            }
+          },
+          configure: (data) => {
+            if (configuration) {
+              action.configure({ config: configuration });
+            }
 
-          if (onConfigure) {
-            onConfigure(data);
-          }
-        },
-        save: (data) => {
-          action.exportDiagram({
-            format: exportFormat || 'xmlsvg',
+            if (onConfigure) {
+              onConfigure(data);
+            }
+          },
+          save: (data) => {
+            action.exportDiagram({
+              format: exportFormat || 'xmlsvg',
+              // @ts-ignore not allowed normally, but only for internal use
+              exit: data.exit,
+              parentEvent: 'save'
+            });
+          },
+          exit: (data) => {
+            if (onClose) {
+              onClose(data);
+            }
+          },
+          draft: (data) => {
+            if (onDraft) {
+              onDraft(data);
+            }
+          },
+          export: (data) => {
+            if (onSave) {
+              onSave({
+                event: 'save',
+                xml: data.data,
+                parentEvent: data.message.parentEvent || 'export'
+              });
+            }
+
+            if (onExport) {
+              onExport(data);
+            }
+
             // @ts-ignore not allowed normally, but only for internal use
-            exit: data.exit
-          });
-        },
-        exit: (data) => {
-          if (onClose) {
-            onClose(data);
+            if (data.message.exit && onClose) {
+              onClose({
+                event: 'exit',
+                modified: true,
+                parentEvent: data.message.parentEvent || 'export'
+              });
+            }
+          },
+          merge: (data) => {
+            if (onMerge) {
+              onMerge(data);
+            }
+          },
+          prompt: (data) => {
+            if (onPrompt) {
+              onPrompt(data);
+            }
+          },
+          template: (data) => {
+            if (onTemplate) {
+              onTemplate(data);
+            }
           }
         },
-        draft: (data) => {
-          if (onDraft) {
-            onDraft(data);
-          }
-        },
-        export: (data) => {
-          if (onSave) {
-            onSave({
-              event: 'save',
-              xml: data.data,
-              parentEvent: 'export'
-            });
-          }
-
-          if (onExport) {
-            onExport(data);
-          }
-
-          // @ts-ignore not allowed normally, but only for internal use
-          if (data.message.exit && onClose) {
-            onClose({
-              event: 'exit',
-              modified: true,
-              parentEvent: 'export'
-            });
-          }
-        },
-        merge: (data) => {
-          if (onMerge) {
-            onMerge(data);
-          }
-        },
-        prompt: (data) => {
-          if (onPrompt) {
-            onPrompt(data);
-          }
-        },
-        template: (data) => {
-          if (onTemplate) {
-            onTemplate(data);
-          }
-        }
-      }, baseUrl);
+        baseUrl
+      );
     };
 
     useImperativeHandle(

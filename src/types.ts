@@ -238,4 +238,5 @@ export type ActionExport = {
   data?: string;
   message?: string;
   xml?: string;
+  parentEvent?: string;
 };

@@ -1,4 +1,4 @@
-# 0.1.6
+# 0.1.7
 - Added `parentEvent` parameters to `onSave` and `onClose` events when the callbacks are triggered by another event.
 
 # 0.1.5
