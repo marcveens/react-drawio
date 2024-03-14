@@ -5,8 +5,7 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-onboarding',
-    '@storybook/addon-interactions'
+    '@storybook/addon-storysource'
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -14,6 +13,7 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag'
-  }
+  },
+  staticDirs: ['../public']
 };
 export default config;

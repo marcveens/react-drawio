@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/react-drawio.svg?style=flat)](https://www.npmjs.com/package/react-drawio)
 [![Build](https://github.com/marcveens/react-drawio/actions/workflows/build.yml/badge.svg)](https://github.com/marcveens/react-drawio/actions/workflows/build.yml)
+[![Storybook demo](https://img.shields.io/badge/-Demo-FF4785?style=flat&logo=storybook&logoColor=white)](https://marcveens.github.io/react-drawio)
+
 
 React component for integrating the <a href="https://app.diagrams.net">Diagrams</a> (<a href="https://www.drawio.com/">draw.io</a>) embed iframe.
 
@@ -9,6 +11,7 @@ This is an unofficial best-effort package based on the embedding documentation t
 
 ## Table of Contents
 
+* [Demo](https://marcveens.github.io/react-drawio)
 * [Installation](#installation)
 * [Examples](#examples)
 * [API documentation](#api-documentation)
