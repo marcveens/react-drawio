@@ -2,6 +2,10 @@ import { useActions } from './hooks/useActions';
 
 export type DrawIoEmbedProps = {
   /**
+   * Base URL for draw.io embed URL. Defaults to https://embed.diagrams.net
+   */
+  baseUrl?: string;
+  /**
    * Parameters documented at https://www.drawio.com/doc/faq/embed-mode
    */
   urlParameters?: UrlParameters;
