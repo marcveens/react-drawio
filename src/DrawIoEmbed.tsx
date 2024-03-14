@@ -106,7 +106,7 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
             onTemplate(data);
           }
         }
-      });
+      }, baseUrl);
     };
 
     useImperativeHandle(

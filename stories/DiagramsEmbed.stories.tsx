@@ -297,3 +297,13 @@ export const ExportData: Story = {
     }
   ]
 };
+
+export const NoSaveAndExit: Story = {
+  args: {
+    urlParameters: {
+      saveAndExit: false,
+      noExitBtn: true,
+      noSaveBtn: true
+    }
+  }
+};

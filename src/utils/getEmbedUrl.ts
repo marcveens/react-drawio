@@ -18,7 +18,7 @@ export const getEmbedUrl = (
     Object.keys(urlParameters).forEach((key) => {
       const value = urlParameters[key as keyof UrlParameters];
 
-      if (value) {
+      if (value !== undefined) {
         if (typeof value === 'boolean') {
           urlSearchParams.append(key, value ? '1' : '0');
         } else {
