@@ -239,4 +239,28 @@ export type ActionExport = {
   message?: string;
   xml?: string;
   parentEvent?: string;
+  /** Enable a spinner while the image is being generated */
+  spin?: boolean;
+  /** Specify the zoom (default is 1) */
+  scale?: number;
+  /** Define the array of visible layer IDs */
+  layerIds?: string[];
+  /** Specify the page to be exported */
+  pageId?: string;
+  /** Specify to export the current selected page */
+  currentPage?: boolean;
+  /** (px) Defines the width of the image to be exported */
+  width?: string;
+  /** (px) Defines the border  */
+  border?: string;
+  /** Specifies if a shadow filter should be applied to the export */
+  shadow?: boolean;
+  /** Specifies if a grid should be added */
+  grid?: boolean;
+  /** Specifies if the theme should be kept (eg. for dark themes) */
+  keepTheme?: boolean;
+  /** Specifies if a transparent background should be used */
+  transparent?: boolean;
+  /** Specifies the background color */
+  background?: string;
 };
