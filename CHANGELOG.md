@@ -1,3 +1,6 @@
+# 0.1.8
+- Added types for more `export` parameters
+
 # 0.1.7
 - Added `parentEvent` parameters to `onSave` and `onClose` events when the callbacks are triggered by another event.
 

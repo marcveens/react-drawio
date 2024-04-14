@@ -252,7 +252,7 @@ export const SetSpinner: Story = {
   ]
 };
 
-export const ExportData: Story = {
+export const ExportDataSvg: Story = {
   args: WithData.args,
   decorators: [
     (Story, context) => {
@@ -291,6 +291,58 @@ export const ExportData: Story = {
             <strong>Result as SVG</strong>
             <br />
             {imgData && <img src={imgData} />}
+          </div>
+        </>
+      );
+    }
+  ]
+};
+
+export const ExportDataPng: Story = {
+  args: WithData.args,
+  decorators: [
+    (Story, context) => {
+      const [isLoaded, setIsLoaded] = useState(false);
+      const [imgData, setImgData] = useState<string | null>(null);
+      const drawioRef = useRef<DrawIoEmbedRef>(null);
+
+      useEffect(() => {
+        if (drawioRef.current && isLoaded) {
+          drawioRef.current.exportDiagram({
+            format: 'png',
+            transparent: false,
+            grid: true,
+            scale: 1.5,
+            shadow: true
+          });
+        }
+      }, [drawioRef.current, isLoaded]);
+
+      return (
+        <>
+          <Story
+            args={{
+              ...context.args,
+              onLoad: () => setIsLoaded(true),
+              onExport(data) {
+                console.log('onExport', data);
+                setImgData(data.data);
+              },
+              onSave(data) {
+                console.log('onSave', data);
+              },
+              onClose(data) {
+                console.log('onClose', data);
+              },
+              ref: drawioRef
+            }}
+          />
+          <div style={{ marginTop: '10px' }}>
+            <strong>Result as transparent PNG (with extra options)</strong>
+            <br />
+            <div style={{ backgroundColor: '#DDD' }}>
+              {imgData && <img src={imgData} />}
+            </div>
           </div>
         </>
       );
