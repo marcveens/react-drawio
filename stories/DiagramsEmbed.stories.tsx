@@ -359,3 +359,17 @@ export const NoSaveAndExit: Story = {
     }
   }
 };
+
+export const CustomStyles: Story = {
+  args: {
+    xml: WithData.args?.xml,
+    configuration: {
+      css: `
+:root { --panel-color: #DCEBE5 !important; --border-color: #b9d6cb !important; }
+html .gePrimaryBtn { background: #528a79 !important; }
+.geMenubarContainer { background: #3b665a !important; }
+.geMenubarContainer a { color: #fff !important; }
+      `
+    }
+  }
+};

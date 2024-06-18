@@ -37,6 +37,10 @@ export type UrlParameters = {
    */
   ui?: 'min' | 'atlas' | 'kennedy' | 'dark' | 'sketch' | 'simple';
   /**
+   * Turn dark mode on/off
+   */
+  dark?: boolean;
+  /**
    * Shows a Loading… spinner while waiting for the diagram data to load in embed mode.
    *
    * @default false
