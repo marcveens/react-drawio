@@ -1,3 +1,6 @@
+# 0.1.9
+- Added `embed=1` URL parameter, as documented by draw.io
+
 # 0.1.8
 - Added types for more `export` parameters
 
