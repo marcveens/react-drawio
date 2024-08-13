@@ -14,6 +14,10 @@ export type DrawIoEmbedProps = {
    */
   xml?: string;
   /**
+   * CSV data for prefilling the editor
+   */
+  csv?: string;
+  /**
    * For configuration options, see https://www.drawio.com/doc/faq/configure-diagram-editor
    */
   configuration?: { [key: string]: any };
@@ -177,6 +181,7 @@ export type ActionLoad = {
   action: 'load';
   xml?: string;
   xmlpng?: string;
+  descriptor?: { format: 'csv'; data: string };
 };
 
 export type ActionMerge = {

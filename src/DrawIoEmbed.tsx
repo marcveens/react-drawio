@@ -18,6 +18,7 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
       urlParameters,
       configuration,
       xml,
+      csv,
       exportFormat,
       onSave,
       onClose,
@@ -132,11 +133,13 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
           } else {
             action.load({ xml });
           }
+        } else if (csv) {
+          action.load({ descriptor: { format: 'csv', data: csv } });
         } else {
           action.load({ xml: '' });
         }
       }
-    }, [isInitialized, xml]);
+    }, [isInitialized, xml, csv]);
 
     // Initial load
     useEffect(() => {

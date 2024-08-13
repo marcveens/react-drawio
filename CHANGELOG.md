@@ -1,3 +1,6 @@
+# 0.2.0
+- Added `csv` parameter for CSV loading support
+
 # 0.1.9
 - Added `embed=1` URL parameter, as documented by draw.io
 
