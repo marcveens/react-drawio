@@ -107,6 +107,8 @@ All options are based on the documentation at <a href="https://www.drawio.com/do
   Parameters documented at https://www.drawio.com/doc/faq/embed-mode
 - `xml` (`string`, default: `undefined`)\
   XML structure for prefilling the editor
+- `csv` (`string`, default: `undefined`)\
+  CSV structure for prefilling the editor
 - `configuration` (`Object`, default: `undefined`)\
   For configuration options, see https://www.drawio.com/doc/faq/configure-diagram-editor
 - `exportFormat` (`'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng'`, default: `xmlsvg`)\
