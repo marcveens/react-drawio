@@ -119,7 +119,8 @@ All options are based on the documentation at <a href="https://www.drawio.com/do
   For self hosted instances of draw.io, insert your URL here
 
 - `onLoad` (`(data: EventLoad) => void`, optional)
-- `onAutoSave` (`(data: EventAutoSave) => void`, optional)
+- `onAutoSave` (`(data: EventAutoSave) => void`, optional)\
+  This will only trigger when the `autosave` property is `true`
 - `onSave` (`(data: EventSave) => void`, optional)
 - `onClose` (`(data: EventExit) => void`, optional)
 - `onConfigure` (`(data: EventConfigure) => void`, optional)
