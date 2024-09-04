@@ -2,6 +2,10 @@ import { useActions } from './hooks/useActions';
 
 export type DrawIoEmbedProps = {
   /**
+   * This will cause the `onAutoSave` event to be triggered every time the diagram is changed
+   */
+  autosave?: boolean;
+  /**
    * Base URL for draw.io embed URL. Defaults to https://embed.diagrams.net
    */
   baseUrl?: string;
@@ -23,6 +27,7 @@ export type DrawIoEmbedProps = {
   configuration?: { [key: string]: any };
   exportFormat?: ExportFormats;
   onLoad?: (data: EventLoad) => void;
+  onAutoSave?: (data: EventAutoSave) => void;
   onSave?: (data: EventSave) => void;
   onClose?: (data: EventExit) => void;
   onConfigure?: (data: EventConfigure) => void;
@@ -93,6 +98,7 @@ type ExportFormats = 'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng';
 export type EmbedEvents =
   | EventInit
   | EventLoad
+  | EventAutoSave
   | EventSave
   | EventExit
   | EventConfigure
@@ -118,6 +124,17 @@ export type EventSave = {
   xml: string;
   /** Is set when the event was triggered by anything other than the save action */
   parentEvent?: string;
+};
+
+export type EventAutoSave = {
+  event: 'autosave';
+  bounds: PagePosition;
+  currentPage: number;
+  page: PagePosition;
+  pageVisible: boolean;
+  scale: number;
+  translate: { x: number; y: number };
+  xml: string;
 };
 
 export type EventExit = {
@@ -182,6 +199,7 @@ export type ActionLoad = {
   xml?: string;
   xmlpng?: string;
   descriptor?: { format: 'csv'; data: string };
+  autosave?: boolean;
 };
 
 export type ActionMerge = {
@@ -272,4 +290,11 @@ export type ActionExport = {
   transparent?: boolean;
   /** Specifies the background color */
   background?: string;
+};
+
+type PagePosition = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
 };

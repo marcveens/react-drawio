@@ -21,6 +21,7 @@ const meta: Meta<typeof DrawIoEmbed> = {
   },
   argTypes: {
     onLoad: { action: 'onLoad' },
+    onAutoSave: { action: 'onAutoSave' },
     onSave: { action: 'onSave' },
     onClose: { action: 'onClose' },
     onConfigure: { action: 'onConfigure' },
@@ -363,6 +364,12 @@ export const ExportDataPng: Story = {
       );
     }
   ]
+};
+
+export const AutoSave: Story = {
+  args: {
+    autosave: true
+  }
 };
 
 export const NoSaveAndExit: Story = {

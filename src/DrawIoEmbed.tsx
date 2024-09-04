@@ -5,21 +5,23 @@ import {
   useRef,
   useState
 } from 'react';
-import { DrawIoEmbedProps, DrawIoEmbedRef } from './types';
+import { ActionLoad, DrawIoEmbedProps, DrawIoEmbedRef } from './types';
 import { getEmbedUrl } from './utils/getEmbedUrl';
 import { handleEvent } from './utils/handleEvent';
-import { useActions } from './hooks/useActions';
+import { UniqueActionProps, useActions } from './hooks/useActions';
 import React from 'react';
 
 export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
   (props, ref) => {
     const {
+      autosave = false,
       baseUrl,
       urlParameters,
       configuration,
       xml,
       csv,
       exportFormat,
+      onAutoSave,
       onSave,
       onClose,
       onLoad,
@@ -55,6 +57,11 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
 
             if (onConfigure) {
               onConfigure(data);
+            }
+          },
+          autosave: (data) => {
+            if (onAutoSave) {
+              onAutoSave(data);
             }
           },
           save: (data) => {
@@ -126,20 +133,29 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
     );
 
     useEffect(() => {
+      let loadObject: UniqueActionProps<ActionLoad> = {};
+
       if (isInitialized) {
         if (xml) {
           if (exportFormat === 'xmlpng') {
-            action.load({ xmlpng: xml });
+            loadObject = { xmlpng: xml };
           } else {
-            action.load({ xml });
+            loadObject = { xml };
           }
         } else if (csv) {
-          action.load({ descriptor: { format: 'csv', data: csv } });
+          loadObject = { descriptor: { format: 'csv', data: csv } };
         } else {
-          action.load({ xml: '' });
+          loadObject = { xml: '' };
         }
+
+        loadObject = {
+          ...loadObject,
+          autosave: autosave
+        };
+
+        action.load(loadObject);
       }
-    }, [isInitialized, xml, csv]);
+    }, [isInitialized, xml, csv, autosave]);
 
     // Initial load
     useEffect(() => {

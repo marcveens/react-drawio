@@ -1,3 +1,8 @@
+# 1.0.0
+About time to make this package a 1.0.0 version!
+
+- Added `autosave` property, which will trigger `onAutoSave` after every change
+
 # 0.2.0
 - Added `csv` parameter for CSV loading support
 

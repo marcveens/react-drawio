@@ -103,6 +103,8 @@ function App() {
 All options are based on the documentation at <a href="https://www.drawio.com/doc/faq/embed-mode">draw.io/doc/faq/embed-mode</a>. If something is off, please let me know by creating an <a href="https://github.com/marcveens/react-drawio/issues/new">issue</a>.
 
 ### `props`
+- `autosave` (`boolean`, default: `false`)\
+  When enabled, it will call `onAutoSave` for all changes made
 - `urlParameters` (`UrlParameters`, default: `undefined`)\
   Parameters documented at https://www.drawio.com/doc/faq/embed-mode
 - `xml` (`string`, default: `undefined`)\
@@ -117,6 +119,8 @@ All options are based on the documentation at <a href="https://www.drawio.com/do
   For self hosted instances of draw.io, insert your URL here
 
 - `onLoad` (`(data: EventLoad) => void`, optional)
+- `onAutoSave` (`(data: EventAutoSave) => void`, optional)\
+  This will only trigger when the `autosave` property is `true`
 - `onSave` (`(data: EventSave) => void`, optional)
 - `onClose` (`(data: EventExit) => void`, optional)
 - `onConfigure` (`(data: EventConfigure) => void`, optional)
