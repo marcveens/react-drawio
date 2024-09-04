@@ -13,10 +13,10 @@ const meta: Meta<typeof DrawIoEmbed> = {
   },
   args: {
     urlParameters: {
-      ui: 'kennedy',
+      // ui: 'kennedy',
       spin: true,
-      libraries: true,
-      saveAndExit: true
+      // libraries: true,
+      // saveAndExit: true
     }
   },
   argTypes: {
@@ -385,6 +385,17 @@ html .gePrimaryBtn { background: #528a79 !important; }
 .geMenubarContainer { background: #3b665a !important; }
 .geMenubarContainer a { color: #fff !important; }
       `
+    }
+  }
+};
+
+export const WithLibrary: Story = {
+  args: {
+    configuration: {
+      // defaultCustomLibraries: [
+      //   'Uhttps://jgraph.github.io/drawio-libs/libs/voyage-icons.xml'
+      // ],
+      // defaultLibraries: "general"
     }
   }
 };

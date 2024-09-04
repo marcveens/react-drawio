@@ -9,6 +9,8 @@ export function handleEvent(event: MessageEvent, handlers: EventHandler, baseUrl
     return;
   }
 
+  console.log('handleEvent', event);
+
   try {
     const data = JSON.parse(event.data) as EmbedEvents;
 

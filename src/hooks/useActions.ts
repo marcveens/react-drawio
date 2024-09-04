@@ -21,6 +21,11 @@ export const useActions = (iframeRef: RefObject<HTMLIFrameElement | null>) => {
     action: string,
     data: UniqueActionProps<EmbedActions>
   ) => {
+    console.log('sendAction', JSON.stringify({
+      action,
+      ...data
+    }));
+
     iframeRef.current?.contentWindow?.postMessage(
       JSON.stringify({
         action,

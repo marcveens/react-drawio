@@ -10,6 +10,15 @@ export const getEmbedUrl = (
 
   urlSearchParams.append('embed', '1');
   urlSearchParams.append('proto', 'json');
+  // urlSearchParams.append('libraries', '1');
+  // urlSearchParams.append('clibs', 'Uhttps://jgraph.github.io/drawio-libs/libs/voyage-icons.xml');
+  // urlSearchParams.append(
+  //   'clibs',
+  //   'Uhttps%3A%2F%2Fjgraph.github.io%2Fdrawio-libs%2Flibs%2Fun-ocha-icons-bluebox.xml;Uhttps%3A%2F%2Fjgraph.github.io%2Fdrawio-libs%2Flibs%2Fun-ocha-icons.xml'
+  // );
+  // urlSearchParams.append('libs', 'azure');
+  urlSearchParams.append('picker', '0');
+  urlSearchParams.append('browser', '0');
 
   if (addConfiguration) {
     urlSearchParams.append('configure', '1');
@@ -30,6 +39,8 @@ export const getEmbedUrl = (
   }
 
   url.search = urlSearchParams.toString();
+
+  console.log('getEmbedUrl', addConfiguration);
 
   return url.toString();
 };
