@@ -40,6 +40,9 @@ export type DrawIoEmbedProps = {
 
 export type DrawIoEmbedRef = ReturnType<typeof useActions>;
 
+/**
+ * Part of the URL parameters based on https://www.drawio.com/doc/faq/supported-url-parameters
+ */
 export type UrlParameters = {
   /**
    * Theme of the editor
@@ -91,6 +94,55 @@ export type UrlParameters = {
    * @default false
    */
   noExitBtn?: boolean;
+  /**
+   * Uses the lightbox in chromeless mode (larger zoom, no page visible, chromeless
+   * 
+   * @default false
+   */
+  lightbox?: boolean;
+  /**
+   * Uses the chromeless read-only viewer.
+   * 
+   * @default false
+   */
+  chrome?: boolean;
+  /**
+   * Opens links in the same window or frame or in a blank window in chromeless mode (auto is the default which opens relative links and anchors in the same window in chromeless mode, and all links in a new window in editing mode)
+   * 
+   * @options auto|self|frame|blank
+   * @default auto
+   */
+  target?: string;
+  /**
+   * Adds a link for the Edit button in chromeless mode (use `edit=_blank` to edit the diagram as a new copy).
+   */
+  edit?: string;
+  /**
+   * Sets the default grid enabled to true.
+   * 
+   * @default false
+   */
+  grid?: boolean;
+  /**
+   * Enables folding in chromeless mode.
+   * 
+   * @default false
+   */
+  nav?: boolean;
+  /**
+   * Adds layer control in chromeless mode
+   * 
+   * @default false
+   */
+  layers?: boolean;
+  /**
+   * Space-separated list of layer IDs to show. If not specified, all layers are shown.
+   */
+  "layer-ids"?: string;
+  /**
+   * Shows the Close button in chromeless mode which closes the window when selected.
+   */
+  close?: boolean;
 };
 
 type ExportFormats = 'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng';

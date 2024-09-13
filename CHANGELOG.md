@@ -1,3 +1,6 @@
+# 1.0.1
+- Added more types for chromeless/lightbox support
+
 # 1.0.0
 About time to make this package a 1.0.0 version!
 

@@ -1,6 +1,6 @@
 {
   "name": "react-drawio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "React component for integrating the Diagrams (draw.io) embed iframe",
   "main": "index.js",

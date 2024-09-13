@@ -395,3 +395,22 @@ html .gePrimaryBtn { background: #528a79 !important; }
     }
   }
 };
+
+export const ReadOnly: Story = {
+  args: {
+    urlParameters: {
+      lightbox: true
+    }
+  },
+  decorators: [
+    (Story, context) => {
+      const { inputXml, urlToBase64 } = useRemoteFile();
+
+      useEffect(() => {
+        urlToBase64('/mydrawio.png');
+      }, []);
+
+      return <Story args={{ ...context.args, xml: inputXml }} />;
+    }
+  ]
+};
