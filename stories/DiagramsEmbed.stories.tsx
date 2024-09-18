@@ -403,14 +403,29 @@ export const ReadOnly: Story = {
     }
   },
   decorators: [
-    (Story, context) => {
+    (Story) => {
       const { inputXml, urlToBase64 } = useRemoteFile();
+      const [editMode, setEditMode] = useState(false);
 
       useEffect(() => {
         urlToBase64('/mydrawio.png');
       }, []);
 
-      return <Story args={{ ...context.args, xml: inputXml }} />;
+      return (
+        <>
+          <button onClick={() => setEditMode(!editMode)}>
+            Toggle view/edit
+          </button>
+          <Story
+            args={{
+              // Key was only added for rerendering the component properly
+              key: editMode ? 'draw-edit' : 'draw-view',
+              urlParameters: { lightbox: !editMode },
+              xml: inputXml
+            }}
+          />
+        </>
+      );
     }
   ]
 };
