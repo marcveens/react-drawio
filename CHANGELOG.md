@@ -1,3 +1,6 @@
+# 1.0.2
+- Added support for React 19
+
 # 1.0.1
 - Added more types for chromeless/lightbox support
 
