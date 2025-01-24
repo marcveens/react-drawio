@@ -143,6 +143,10 @@ export type UrlParameters = {
    * Shows the Close button in chromeless mode which closes the window when selected.
    */
   close?: boolean;
+  /**
+   * Specifies the language of the user interface. For possible values, see https://www.drawio.com/doc/faq/supported-url-parameters
+   */
+  lang?: string;
 };
 
 type ExportFormats = 'html' | 'html2' | 'svg' | 'xmlsvg' | 'png' | 'xmlpng';

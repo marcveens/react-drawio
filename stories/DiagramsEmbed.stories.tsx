@@ -429,3 +429,11 @@ export const ReadOnly: Story = {
     }
   ]
 };
+
+export const OtherLanguage: Story = {
+  args: {
+    urlParameters: {
+      lang: 'nl'
+    },
+  }
+};
