@@ -1,6 +1,8 @@
+# 1.0.4
+- Now supporting `baseUrl` with different path than `/`
+
 # 1.0.3
 - Added `lang` property for defining a language.
-
 
 # 1.0.2
 - Added support for React 19

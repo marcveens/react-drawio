@@ -5,7 +5,7 @@ export const getEmbedUrl = (
   urlParameters?: UrlParameters,
   addConfiguration?: boolean
 ) => {
-  const url = new URL('/', baseUrl ?? 'https://embed.diagrams.net');
+  const url = new URL(baseUrl ?? 'https://embed.diagrams.net');
   const urlSearchParams = new URLSearchParams();
 
   urlSearchParams.append('embed', '1');
