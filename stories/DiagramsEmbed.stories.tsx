@@ -20,6 +20,7 @@ const meta: Meta<typeof DrawIoEmbed> = {
     }
   },
   argTypes: {
+    baseUrl: { control: 'text' },
     onLoad: { action: 'onLoad' },
     onAutoSave: { action: 'onAutoSave' },
     onSave: { action: 'onSave' },
@@ -434,6 +435,6 @@ export const OtherLanguage: Story = {
   args: {
     urlParameters: {
       lang: 'nl'
-    },
+    }
   }
 };
