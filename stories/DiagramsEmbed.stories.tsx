@@ -14,13 +14,15 @@ const meta: Meta<typeof DrawIoEmbed> = {
   args: {
     urlParameters: {
       // ui: 'kennedy',
-      spin: true,
+      spin: true
       // libraries: true,
       // saveAndExit: true
     }
   },
   argTypes: {
+    baseUrl: { control: 'text' },
     onLoad: { action: 'onLoad' },
+    onAutoSave: { action: 'onAutoSave' },
     onSave: { action: 'onSave' },
     onClose: { action: 'onClose' },
     onConfigure: { action: 'onConfigure' },
@@ -365,6 +367,12 @@ export const ExportDataPng: Story = {
   ]
 };
 
+export const AutoSave: Story = {
+  args: {
+    autosave: true
+  }
+};
+
 export const NoSaveAndExit: Story = {
   args: {
     urlParameters: {
@@ -385,6 +393,48 @@ html .gePrimaryBtn { background: #528a79 !important; }
 .geMenubarContainer { background: #3b665a !important; }
 .geMenubarContainer a { color: #fff !important; }
       `
+    }
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    urlParameters: {
+      lightbox: true
+    }
+  },
+  decorators: [
+    (Story) => {
+      const { inputXml, urlToBase64 } = useRemoteFile();
+      const [editMode, setEditMode] = useState(false);
+
+      useEffect(() => {
+        urlToBase64('/mydrawio.png');
+      }, []);
+
+      return (
+        <>
+          <button onClick={() => setEditMode(!editMode)}>
+            Toggle view/edit
+          </button>
+          <Story
+            args={{
+              // Key was only added for rerendering the component properly
+              key: editMode ? 'draw-edit' : 'draw-view',
+              urlParameters: { lightbox: !editMode },
+              xml: inputXml
+            }}
+          />
+        </>
+      );
+    }
+  ]
+};
+
+export const OtherLanguage: Story = {
+  args: {
+    urlParameters: {
+      lang: 'nl'
     }
   }
 };

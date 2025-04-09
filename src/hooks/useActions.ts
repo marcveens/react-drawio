@@ -14,7 +14,7 @@ import {
   EmbedActions
 } from '../types';
 
-type UniqueActionProps<T> = Omit<T, 'action'>;
+export type UniqueActionProps<T> = Omit<T, 'action'>;
 
 export const useActions = (iframeRef: RefObject<HTMLIFrameElement | null>) => {
   const sendAction = (

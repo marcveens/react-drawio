@@ -1,3 +1,20 @@
+# 1.0.4
+- Now supporting `baseUrl` with different path than `/`
+
+# 1.0.3
+- Added `lang` property for defining a language.
+
+# 1.0.2
+- Added support for React 19
+
+# 1.0.1
+- Added more types for chromeless/lightbox support
+
+# 1.0.0
+About time to make this package a 1.0.0 version!
+
+- Added `autosave` property, which will trigger `onAutoSave` after every change
+
 # 0.2.0
 - Added `csv` parameter for CSV loading support
 
