@@ -442,9 +442,9 @@ export const OtherLanguage: Story = {
 export const WithLibrary: Story = {
   args: {
     configuration: {
-      // defaultCustomLibraries: [
-      //   'Uhttps://jgraph.github.io/drawio-libs/libs/voyage-icons.xml'
-      // ],
+      defaultCustomLibraries: [
+        // 'Uhttps://jgraph.github.io/drawio-libs/libs/voyage-icons.xml'
+      ],
       // defaultLibraries: "general"
     }
   }
