@@ -472,3 +472,9 @@ export const MergeMultiple: Story = {
     }
   ]
 };
+
+export const BaseUrl: Story = {
+  args: {
+    baseUrl: 'https://jgraph.github.io/drawio/src/main/webapp/index.html'
+  }
+};
