@@ -1,3 +1,6 @@
+# 1.0.6
+- Fixed check for receiving events on different `baseUrl` - #55 and #57
+
 # 1.0.4
 - Now supporting `baseUrl` with different path than `/`
 

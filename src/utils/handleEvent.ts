@@ -1,11 +1,22 @@
 import { EmbedEvents } from '../types';
 
 type EventHandler = {
-  [key in EmbedEvents['event']]?: (data: Extract<EmbedEvents, { event: key }>) => void;
+  [key in EmbedEvents['event']]?: (
+    data: Extract<EmbedEvents, { event: key }>
+  ) => void;
 };
 
-export function handleEvent(event: MessageEvent, handlers: EventHandler, baseUrl?: string) {
-  if (!event.origin.includes('embed.diagrams.net') && (baseUrl && !event.origin.includes(baseUrl))) {
+export function handleEvent(
+  event: MessageEvent,
+  handlers: EventHandler,
+  baseUrl?: string
+) {
+  if (
+    !event.origin.includes('embed.diagrams.net') &&
+    baseUrl &&
+    !baseUrl.includes(event.origin) &&
+    !event.origin.includes(baseUrl)
+  ) {
     return;
   }
 
@@ -23,4 +34,4 @@ export function handleEvent(event: MessageEvent, handlers: EventHandler, baseUrl
   } catch {
     //
   }
-};
+}
