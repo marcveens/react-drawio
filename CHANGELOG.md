@@ -1,3 +1,6 @@
+# 1.0.7
+- Add allow attribute to iframe to allow clipboard access - thanks to @mwiedemeyer
+
 # 1.0.6
 - Fixed check for receiving events on different `baseUrl` - #55 and #57
 
