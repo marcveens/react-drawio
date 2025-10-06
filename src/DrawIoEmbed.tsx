@@ -171,6 +171,7 @@ export const DrawIoEmbed = forwardRef<DrawIoEmbedRef, DrawIoEmbedProps>(
         className="diagrams-iframe"
         src={iframeUrl}
         ref={iframeRef}
+        allow="clipboard-read; clipboard-write"
         title="Diagrams.net"
         style={{
           width: '100%',
